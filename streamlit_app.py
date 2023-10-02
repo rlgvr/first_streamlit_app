@@ -32,7 +32,7 @@ streamlit.write('The user entered ', fruit_choice)
 
 streamlit.header("Fruityvice Fruit Advice!")
 ## integrate URL request 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "fruit_choice")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # streamlit.text(fruityvice_response.json())
 
 # write your own comment -what does the next line do? 
