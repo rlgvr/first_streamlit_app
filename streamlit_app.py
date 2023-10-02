@@ -1,5 +1,7 @@
 import streamlit
- 
+import pandas
+import requests
+
 streamlit.title('My Parents New Healthy Diner')
 
 streamlit.header('Breakfast Menu')
@@ -13,7 +15,6 @@ streamlit.text('🥑🍞Avocado Toast')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 ## read data from link in pandas 
-import pandas
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt", index_col=0)
 
 
@@ -25,3 +26,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 # stream dataframe
 streamlit.dataframe(fruits_to_show)
+
+## integrate URL request 
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
